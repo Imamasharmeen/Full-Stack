@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant User
+    participant App
+    participant API
+    participant Database
+
+    User->>App: Click "New Note" button
+    App->>User: Display note creation form
+
+    User->>App: Fill out note details
+    User->>App: Click "Save" button
+
+    App->>API: Send POST request to create note
+    API->>Database: Store new note in database
+    Database-->>API: Confirmation of note creation
+    API-->>App: Success response
+
+    App->>User: Display success message
+    App->>User: Update note list with new note
